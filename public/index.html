@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">🛒 Online Store</a>
+      <nav class="nav">
+        <a href="#catalog" class="nav__link">Каталог</a>
+        <button id="addBtn" class="btn btn--primary">+ Добавить товар</button>
+      </nav>
+    </div>
+  </header>
+
+  <!--Основной контент-->
+  <main class="container">
+    <h1 class="page-title">Каталог товаров</h1>
+    <p class="page-subtitle">Управляйте ассортиментом магазина: добавляйте, редактируйте и удаляйте товары.</p>
+
+    <section id="catalog" class="grid" id="catalog">
+
+    </section>
+
+    <p id="emptyMessage" class="empty hidden">Товары не найдены. Добавьте первый товар 🚀</p>
+  </main>
+
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Online Store · Node.js + Express
+    </div>
+  </footer>
+
+  <!-- Модальное окно (добавление / редактирование)  -->
+  <div id="modal" class="modal hidden">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__window">
+      <div class="modal__header">
+        <h2 id="modalTitle">Добавить товар</h2>
+        <button class="modal__close" data-close>&times;</button>
+      </div>
+      <form id="productForm" class="form">
+        <input type="hidden" id="productId" />
+        <label class="form__label">
+          Название
+          <input type="text" id="name" required placeholder="Например, iPhone 15" />
+        </label>
+        <label class="form__label">
+          Описание
+          <textarea id="description" required rows="3" placeholder="Краткое описание товара"></textarea>
+        </label>
+        <label class="form__label">
+          Производитель
+          <input type="text" id="manufacturer" required placeholder="Например, Apple" />
+        </label>
+        <label class="form__label">
+          Цена, ₽
+          <input type="number" id="price" required min="0" step="1" placeholder="99990" />
+        </label>
+        <div class="form__actions">
+          <button type="button" class="btn btn--ghost" data-close>Отмена</button>
+          <button type="submit" class="btn btn--primary">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Уведомление  -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
